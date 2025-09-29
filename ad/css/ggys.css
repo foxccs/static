@@ -1,0 +1,110 @@
+@charset "utf-8";
+/*Npcink
+
+	版本：1.0
+	整理：木子资源屋
+	帮助：https://www.muziz.cn
+*/
+
+/*定位*/
+.n_banner_inner {
+  position: relative;
+}
+
+/*提示信息*/
+.n_banner_inner .img-info {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+  padding: 0;
+  text-align: right;
+  color: #fff;
+}
+
+.n_banner_inner .img-info i {
+  position: relative;
+  display: inline-block;
+  color: #007bff;
+  font-size: 20px;
+  line-height: 19px;
+  text-align: center;
+  z-index: 9;
+  font-style: inherit;
+}
+
+.n_banner_inner .img-info .info {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 0;
+  padding: 5px 0;
+  overflow: hidden;
+  background: #007bff;
+  border-radius: 10px;
+  line-height: 10px;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  white-space: nowrap;
+
+  -webkit-transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  -moz-transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  -ms-transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  -o-transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+}
+
+.n_banner_inner .img-info .info a {
+  color: #fff;
+}
+
+.n_banner_inner .tirr {
+  max-width: 100%;
+  height: auto;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+/*触发Hover*/
+.n_banner_inner:hover .info {
+  width: auto;
+  padding: 5px 23px 5px 12px;
+  -webkit-transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  -moz-transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  -ms-transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  -o-transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.71, 1.26) !important;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.n_banner_inner img:hover {
+  filter: brightness(50%);
+}
+
+/*触发声明hover*/
+.n_banner_inner .info:hover a {
+  color: red;
+  text-decoration: none;
+}
+
+/*左下角广告*/
+.n_banner_inner .Banner-adTag {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: 50px;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  color: #ebebeb;
+  opacity: 0.5;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .n_banner_inner .img-info {
+    display: none;
+  }
+}
