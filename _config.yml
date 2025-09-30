@@ -1,3 +1,56 @@
+# -------------------------- 核心主题与站点标识 --------------------------
+# 基础主题（保持 minimal 简洁风格，不改变核心设计）
 theme: jekyll-theme-minimal
-title: foxccs's homepage
-description: Bookmark this to keep an eye on my project updates!
+
+# 站点标题：强化个人标识+用途，让访客快速理解页面定位
+title: foxccs | 个人主页 & 项目更新站
+
+# 站点描述：补充价值点（不止项目更新，还可包含技术记录），引导访客行为
+description: 这里会同步我的开源项目进度、技术笔记与开发动态，建议收藏以获取实时更新～
+
+
+# -------------------------- 新增实用配置（提升功能&体验） --------------------------
+# 1. 站点基础URL（部署必备：若你的网站部署在子路径，如 xxx.com/foxccs，则填 /foxccs；根路径填 /）
+baseurl: "/"
+# 站点根域名（填你的实际域名，用于生成正确的链接、SEO和订阅源）
+url: "https://foxccs.github.io" # 示例：若用GitHub Pages，格式通常是 https://用户名.github.io
+
+# 2. 作者信息（强化个人品牌，部分主题组件会自动调用）
+author:
+  name: foxccs # 你的名称/昵称
+  email: your-email@example.com # 可选：方便访客联系（若不想公开可删除）
+  github: foxccs # 可选：GitHub用户名（后续社交链接可关联）
+
+# 3. 永久链接格式（优化URL结构，更友好且利于SEO）
+# 规则：项目/文章页面的URL会变成「年份/月份/标题」，例如 /2024/10/my-project/
+permalink: /:year/:month/:title/
+
+# 4. 插件（不破坏简洁性，仅增加必要功能）
+plugins:
+  - jekyll-feed # 生成 RSS 订阅源（方便访客订阅项目更新）
+  - jekyll-seo-tag # 自动优化页面SEO（标题、描述、社交卡片等，提升搜索可见性）
+  - jekyll-sitemap # 生成站点地图（帮助搜索引擎抓取页面，对项目曝光更友好）
+
+# 5. 默认布局配置（减少重复工作：所有页面默认用统一布局）
+defaults:
+  - scope:
+      path: "" # 对所有文件生效
+    values:
+      layout: "page" # 默认用「page」布局（minimal主题原生布局，简洁无多余元素）
+  - scope:
+      path: "_posts" # 对「_posts」文件夹（用于存项目更新/文章）生效
+    values:
+      layout: "post" # 项目更新类内容用「post」布局（自带日期、标题样式，更适配动态内容）
+
+# 6. 社交链接（minimal主题支持通过配置添加顶部/底部社交图标，方便访客直达你的平台）
+# 需先确保主题支持：jekyll-theme-minimal 部分版本需配合 `social_links` 配置，若无显示可忽略
+social_links:
+  github: foxccs # GitHub链接（自动生成图标，访客点击直达你的GitHub项目页）
+  # linkedin: your-linkedin-id # 可选：若有LinkedIn可添加
+  # twitter: your-twitter-id # 可选：若有X/Twitter可添加
+
+# 7. 排除无需编译的文件（提升编译速度，避免冗余文件干扰）
+exclude:
+  - README.md # 项目说明文档（无需生成到网页中）
+  - .gitignore # Git忽略文件
+  - node_modules/ # 若用npm工具，排除依赖文件夹
