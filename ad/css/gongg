@@ -1,0 +1,236 @@
+          /* 1. 基础布局样式 */
+          .notice-container {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+            transition: background 0.3s ease;
+          }
+          
+          /* 移动端隐藏（补充缺失样式） */
+          @media (max-width: 768px) {
+            .mobile-hidden {
+              display: none !important;
+            }
+          }
+          
+          /* 2. 喇叭图标样式（添加fallback） */
+          .notice-horn {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 30px;
+            width: 36px;
+            background: linear-gradient(135deg, #07377a 0%, #1a4a9c 100%);
+            color: white;
+            z-index: 10;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 1px 0 3px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .notice-horn-icon {
+            font-size: 14px;
+            transform: scale(1);
+            transition: transform 0.2s ease;
+          }
+          
+          /* Font Awesome加载失败时用emoji fallback */
+          .fa-bullhorn:not([class*="fa-"]):before {
+            content: "📢" !important;
+          }
+          .fa-exclamation-circle:not([class*="fa-"]):before {
+            content: "⚠️" !important;
+          }
+          .fa-gift:not([class*="fa-"]):before {
+            content: "🎁" !important;
+          }
+          .fa-book:not([class*="fa-"]):before {
+            content: "📚" !important;
+          }
+          .fa-bell:not([class*="fa-"]):before {
+            content: "🔔" !important;
+          }
+          
+          /* 3. 公告内容样式 */
+          .notice-wrapper {
+            position: absolute;
+            top: 0; /* 初始位置改为0，避免加载跳动 */
+            left: 0;
+            width: 100%;
+            transition: top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+          
+          .notice-item {
+            padding: 0 10px 0 44px;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          }
+          
+          .notice-item-icon {
+            font-size: 13px;
+            text-shadow: 0 0 1px rgba(0,0,0,0.15);
+          }
+          .notice-icon-important { color: #07377a; }
+          .notice-icon-activity { color: #4285f4; }
+          .notice-icon-guide { color: #34a853; }
+          .notice-icon-remind { color: #fbbc05; }
+          
+          /* 4. 公告链接样式（添加已访问反馈） */
+          .notice-item-link {
+            color: #333;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 1px 0;
+          }
+          
+          .notice-item-tag {
+            font-weight: 500;
+            margin-right: 3px;
+          }
+          .notice-tag-important { color: #07377a; }
+          .notice-tag-activity { color: #4285f4; }
+          .notice-tag-guide { color: #34a853; }
+          .notice-tag-remind { color: #fbbc05; }
+          
+          .notice-link-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            transition: width 0.3s ease;
+          }
+          .notice-link-important .notice-link-underline { background: #07377a; }
+          .notice-link-activity .notice-link-underline { background: #4285f4; }
+          .notice-link-guide .notice-link-underline { background: #34a853; }
+          .notice-link-remind .notice-link-underline { background: #fbbc05; }
+          
+          /* 链接hover效果 */
+          .notice-item-link:hover {
+            color: inherit;
+          }
+          .notice-item-link:hover .notice-link-underline {
+            width: 100%;
+          }
+          
+          /* 链接已访问效果 */
+          .notice-item-link:visited {
+            color: #6c757d;
+          }
+          .notice-item-link:visited .notice-item-tag {
+            color: #6c757d;
+          }
+          
+          /* 5. 站点统计样式 */
+          .notice-stats {
+            position: absolute;
+            right: 65px;
+            top: 0;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 11px;
+          }
+          
+          .stats-icon {
+            margin-right: 2px;
+            color: #6c757d;
+            font-size: 10px;
+          }
+          
+          .stats-value {
+            font-weight: 500;
+            transition: all 0.3s ease;
+          }
+          .stats-days { color: #28a745; }
+          .stats-users { color: #007bff; }
+          .stats-downloads { color: #dc3545; }
+          
+          /* localStorage禁用提示 */
+          .stats-storage-tip {
+            color: #dc3545;
+            font-size: 10px;
+            margin-left: 3px;
+            display: none;
+          }
+          
+          /* 6. 指示器样式（添加点击反馈） */
+          .notice-indicators {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 4px;
+          }
+          
+          .indicator {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #ccc;
+            transition: all 0.3s ease;
+            cursor: pointer;
+          }
+          
+          .indicator.active {
+            background: #07377a;
+            transform: scale(1.3);
+            box-shadow: 0 0 0 1px rgba(7, 55, 122, 0.2);
+          }
+          
+          /* 指示器点击反馈 */
+          .indicator:active {
+            transform: scale(1.5);
+            background: #094293 !important;
+          }
+          
+          /* 7. 动画样式 */
+          .count-animate {
+            animation: countUp 0.5s ease-out;
+          }
+          
+          @keyframes countUp {
+            from { opacity: 0.5; transform: translateY(3px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          
+          .pulse {
+            animation: pulse 0.3s ease;
+          }
+          
+          @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+          }
+          
+          /* 8. 悬停交互增强 */
+          .notice-container:hover {
+            background: #f0f2f5;
+          }
+          
+          .notice-horn:hover {
+            background: linear-gradient(135deg, #094293 0%, #1d56b8 100%);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 1px 0 4px rgba(0,0,0,0.12);
+          }
+          
+          .notice-horn:hover .notice-horn-icon {
+            transform: scale(1.1);
+          }
