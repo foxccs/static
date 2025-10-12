@@ -1,211 +1,189 @@
-        /* 根变量定义：统一控制样式，核心优化上下15px间距 */
-        :root {
-            --ad-primary: #2563eb;
-            --ad-bg: #ffffff;
-            --ad-border: #e2e8f0;
-            --ad-hover: #f8fafc;
-            --ad-active: #eef2f7;
-            --ad-label: #94a3b8;
-            --ad-vertical-space: 15px; /* 上下间距统一变量，精准控制需求 */
-        }
-
-        /* 主容器：上下15px间距生效，控制整体布局 */
+        /* 完全隔离的样式系统 */
         #adcmp-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--ad-vertical-space) 0; /* 上下15px，左右0，符合优化要求 */
-            box-sizing: border-box;
-            position: relative;
+            --ad-primary: #2563eb !important;
+            --ad-bg: #ffffff !important;
+            --ad-border: #e2e8f0 !important;
+            --ad-hover: #f8fafc !important;
+            --ad-active: #eef2f7 !important;
+            --ad-label: #94a3b8 !important; /* 广告标签颜色 */
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
+            position: relative !important;
         }
-
-        /* 广告外框：消除冗余样式，保持内边距平衡 */
+        
         #adcmp-outer {
-            border: 1px solid var(--ad-border);
-            border-radius: 2px;
-            padding: 5px;
-            padding-bottom: 3px;
-            background: var(--ad-bg);
-            margin: 0;
-            box-sizing: border-box;
-            position: relative;
+            border: 1px solid var(--ad-border) !important;
+            border-radius: 2px !important;
+            padding: 5px !important;
+            padding-bottom: 3px !important; /* 消除底部多余空白 */
+            background: var(--ad-bg) !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+            position: relative !important;
         }
-
-        /* 广告标签：含警示图标，避免遮挡内容 */
+        
+        /* 广告标签样式 - 含警示图标 */
         #adcmp-label {
-            position: absolute;
-            left: 5px;
-            top: -8px;
-            z-index: 9998;
-            color: var(--ad-label);
-            font-size: 12px;
-            font-weight: 500;
-            padding: 0 4px 0 20px;
-            background: var(--ad-bg);
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
+            position: absolute !important;
+            left: 5px !important;
+            top: -8px !important; /* 向上移动，原top: 3px */
+            z-index: 9998 !important;
+            color: var(--ad-label) !important;
+            font-size: 12px !important;
+            font-weight: 500 !important;
+            padding: 0 4px 0 20px !important; /* 左侧留20px给图标 */
+            background: var(--ad-bg) !important;
+            border-radius: 2px !important;
+            display: flex !important;
+            align-items: center !important;
         }
-
-        /* 警示图标：压缩SVG代码，减少资源体积 */
+        
+        /* 警示图标样式 */
         #adcmp-warning-icon {
-            position: absolute;
-            left: 4px;
-            width: 14px;
-            height: 14px;
-            fill: var(--ad-label);
+            position: absolute !important;
+            left: 4px !important;
+            width: 14px !important;
+            height: 14px !important;
+            fill: var(--ad-label) !important;
         }
-
-        /* 立即入驻按钮：交互效果保留，优化视觉反馈 */
+        
         #adcmp-buy {
-            position: absolute;
-            right: -6px;
-            top: -12px;
-            z-index: 9999;
-            background: white;
-            border: 1.5px solid var(--ad-primary);
-            color: var(--ad-primary);
-            font-weight: 700;
-            padding: 5px 10px;
-            height: auto;
-            line-height: 1.4;
-            border-radius: 3px;
-            font-size: 10px;
-            text-decoration: none;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            display: inline-flex;
-            align-items: center;
-            box-sizing: content-box;
-            transition: all 0.2s ease;
+            position: absolute !important;
+            right: -6px !important;
+            top: -12px !important; /* 保持之前调整的位置 */
+            z-index: 9999 !important;
+            background: white !important;
+            border: 1.5px solid var(--ad-primary) !important;
+            color: var(--ad-primary) !important;
+            font-weight: 700 !important;
+            padding: 5px 10px !important;
+            height: auto !important;
+            line-height: 1.4 !important;
+            border-radius: 3px !important;
+            font-size: 10px !important;
+            text-decoration: none !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            box-sizing: content-box !important;
+            transition: all 0.2s ease !important;
         }
-
+        
         #adcmp-buy:hover {
-            background: var(--ad-primary);
-            color: white;
-            transform: scale(1.05);
+            background: var(--ad-primary) !important;
+            color: white !important;
+            transform: scale(1.05) !important;
         }
-
-        /* 广告网格：保持5列基础布局，响应式适配 */
+        
         #adcmp-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 3px;
-            margin-top: 5px;
-            padding: 0;
-            box-sizing: border-box;
+            display: grid !important;
+            grid-template-columns: repeat(5, 1fr) !important;
+            gap: 3px !important;
+            margin-top: 5px !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
         }
-
-        /* 广告项：min-height替代固定高度，防止文字截断 */
+        
         .adcmp-item {
-            min-height: 30px;
-            border: 1px solid var(--ad-border);
-            border-radius: 3px;
-            background: var(--ad-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            padding: 2px;
-            transition: all 0.2s ease;
-            box-sizing: border-box;
-            overflow: hidden; /* 避免文字溢出容器 */
+            height: 30px !important;
+            border: 1px solid var(--ad-border) !important;
+            border-radius: 3px !important;
+            background: var(--ad-bg) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 !important;
+            padding: 2px !important;
+            transition: all 0.2s ease !important;
+            box-sizing: border-box !important;
         }
-
+        
         .adcmp-item:hover {
-            border-color: var(--ad-primary);
-            background: var(--ad-hover);
+            border-color: var(--ad-primary) !important;
+            background: var(--ad-hover) !important;
         }
-
+        
         .adcmp-item.active {
-            border-color: var(--ad-primary);
-            background: var(--ad-active);
+            border-color: var(--ad-primary) !important;
+            background: var(--ad-active) !important;
         }
-
-        /* 广告链接：优化文字排版，适配多行内容 */
+        
         .adcmp-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            font-size: 14px;
-            text-decoration: none;
-            text-align: center;
-            padding: 0 5px;
-            margin: 0;
-            line-height: 1.4;
-            white-space: normal;
-            word-wrap: break-word;
-            box-sizing: border-box;
-            font-family: inherit;
-            transition: color 0.2s ease;
-            letter-spacing: normal;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            height: 100% !important;
+            font-size: 14px !important;
+            text-decoration: none !important;
+            text-align: center !important;
+            padding: 0 5px !important;
+            margin: 0 !important;
+            line-height: 1.4 !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            box-sizing: border-box !important;
+            font-family: inherit !important;
+            transition: color 0.2s ease !important;
+            letter-spacing: normal !important;
         }
-
+        
         .adcmp-link:hover {
-            color: var(--ad-primary);
+            color: var(--ad-primary) !important;
         }
-
-        /* 按钮图标：压缩SVG路径，减少资源体积 */
+        
         .adcmp-icon {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            margin-right: 5px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='21' r='1'/%3E%3Ccircle cx='20' cy='21' r='1'/%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'/%3E%3C/svg%3E");
-            background-size: contain;
-            background-repeat: no-repeat;
-            vertical-align: middle;
+            display: inline-block !important;
+            width: 16px !important;
+            height: 16px !important;
+            margin-right: 5px !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='21' r='1'/%3E%3Ccircle cx='20' cy='21' r='1'/%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'/%3E%3C/svg%3E") !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            vertical-align: middle !important;
         }
-
-        /* 合规提示：新增底部提示，提升用户识别度 */
-        #adcmp-compliance-tip {
-            text-align: center;
-            font-size: 11px;
-            color: var(--ad-label);
-            margin-top: 8px;
-            padding: 0 5px;
-            box-sizing: border-box;
-        }
-
-        /* 响应式适配：按屏幕宽度调整布局与字体 */
+        
+        /* 响应式适配 */
         @media (max-width: 1200px) {
             #adcmp-wrapper {
-                padding: 0 5px;
+                padding: 0 5px !important;
             }
             .adcmp-link {
-                font-size: 13.5px;
+                font-size: 13.5px !important;
             }
         }
-
+        
         @media (max-width: 1024px) {
             .adcmp-link {
-                font-size: 13px;
+                font-size: 13px !important;
             }
         }
-
+        
         @media (max-width: 768px) {
             #adcmp-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(3, 1fr) !important;
             }
             .adcmp-link {
-                font-size: 14px;
+                font-size: 14px !important;
             }
         }
-
+        
         @media (max-width: 640px) {
             .adcmp-link {
-                font-size: 13px;
+                font-size: 13px !important;
             }
         }
-
+        
         @media (max-width: 480px) {
             #adcmp-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
             }
             .adcmp-link {
-                font-size: 13px;
+                font-size: 13px !important;
             }
             .adcmp-item {
-                min-height: 55px; /* 小屏增加最小高度，适配多行文字 */
+                height: 55px !important;
             }
         }
