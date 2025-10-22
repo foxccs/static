@@ -200,3 +200,35 @@
             justify-content: flex-start; /* 小屏幕保持左对齐 */
         }
     }
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    /* 手机端隐藏整个页脚 */
+    .wb-footer { 
+        display: none;
+        padding: 10px 0 15px; 
+    }
+    .wb-footer .container {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 3px;
+    }
+    .wb-footer .left-column,
+    .wb-footer .right-column {
+        width: 100%;
+        text-align: left; /* 小屏幕保持左对齐 */
+        min-width: auto;
+    }
+    .wb-circle-animation,
+    .wb-footer::before { height: 40px; }
+    .wb-footer .right-column .wb-service-time,
+    .wb-footer .right-column .wb-qq-groups,
+    .wb-footer .right-column .wb-company {
+        justify-content: flex-start; /* 小屏幕保持左对齐 */
+    }
+}
